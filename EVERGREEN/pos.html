@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evergreen POS System</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pos.css">
+</head>
+
+<body class="pos-body">
+    <div class="pos-layout">
+        <!-- Sidebar / Multi-site selection -->
+        <aside class="pos-sidebar glass-dark">
+            <div class="sidebar-header">
+                <span class="logo-icon">🌿</span>
+                <h2>Evergreen</h2>
+                <p>POS Master</p>
+            </div>
+
+            <div class="site-selector">
+                <label>Active Site:</label>
+                <select id="site-select">
+                    <option value="central">Evergreen Central</option>
+                    <option value="north">Evergreen North</option>
+                    <option value="south">Evergreen South</option>
+                </select>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="register">Register</button>
+                <button class="nav-item" data-view="inventory">Inventory</button>
+                <button class="nav-item" data-view="reports">Reports</button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="exit-link">Exit to Website</a>
+            </div>
+        </aside>
+
+        <!-- Main Register Area -->
+        <main class="pos-content">
+            <div class="register-view active-view" id="register-view">
+                <header class="view-header">
+                    <h1>Register</h1>
+                    <div class="search-bar">
+                        <input type="text" id="product-search" placeholder="Search products (name or SKU)...">
+                    </div>
+                </header>
+
+                <div class="register-grid">
+                    <div class="product-selection glass">
+                        <div class="category-tabs">
+                            <button class="tab active" data-cat="all">All</button>
+                            <button class="tab" data-cat="produce">Produce</button>
+                            <button class="tab" data-cat="dairy">Dairy</button>
+                            <button class="tab" data-cat="bakery">Bakery</button>
+                            <button class="tab" data-cat="pantry">Pantry</button>
+                        </div>
+                        <div class="product-list" id="product-list">
+                            <!-- Products will be injected here -->
+                        </div>
+                    </div>
+
+                    <div class="checkout-panel glass">
+                        <h3>Current Cart</h3>
+                        <div class="cart-items" id="cart-items">
+                            <!-- Cart items injected here -->
+                            <div class="empty-cart">No items in cart</div>
+                        </div>
+                        <div class="cart-summary">
+                            <div class="summary-line">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Tax (8%)</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            <div class="summary-line total">
+                                <span>Total</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                            <button class="btn-checkout" id="checkout-btn">Complete Sale</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory View (Simplified) -->
+            <div class="inventory-view" id="inventory-view">
+                <h1>Inventory Management</h1>
+                <div class="inventory-table-container glass">
+                    <table id="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>SKU</th>
+                                <th>Product</th>
+                                <th>Stock (Current Site)</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-body">
+                            <!-- Inventory items injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/pos.js"></script>
+</body>
+
+</html>
